@@ -17,7 +17,7 @@ vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 vim.keymap.set("n", "<leader>sb", "<C-w>s") -- split window horizontally
 
 -- ZenMod
-vim.keymap.set("n", "<leader>zn", ":ZenMode<CR>")
+vim.keymap.set("n", "<leader>sn", ":ZenMode<CR>")
 
 -- [[ Highlight  on Cody]]
 vim.api.nvim_set_hl(0, "CmpItemKindCody", { fg = "Red" })
