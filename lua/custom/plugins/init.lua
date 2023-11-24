@@ -8,9 +8,9 @@
 vim.o.relativenumber = true
 
 vim.o.expandtab = true
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.o.tabstop = 2
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
 
 -- split window
 vim.keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
