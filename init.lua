@@ -630,5 +630,12 @@ require('glow').setup({
   width = 120,
   height = 100,
 })
+
+
+require("toggleterm").setup({
+  open_mapping = [[<c-\>]]
+})
+
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

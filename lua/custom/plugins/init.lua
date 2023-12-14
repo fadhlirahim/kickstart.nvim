@@ -30,5 +30,4 @@ vim.keymap.set('n', '<leader>ch', function()
   require("sg.cody.commands").focus_history()
 end)
 
-
 return {}
