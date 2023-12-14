@@ -622,6 +622,7 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'path' },
     { name = 'cody' },
+    -- { name = 'cody' },
   },
 }
 
@@ -633,7 +634,8 @@ require('glow').setup({
 
 
 require("toggleterm").setup({
-  open_mapping = [[<c-\>]]
+  open_mapping = [[<c-\>]],
+  direction = 'float'
 })
 
 
