@@ -30,4 +30,6 @@ vim.keymap.set('n', '<leader>ch', function()
   require("sg.cody.commands").focus_history()
 end)
 
+vim.keymap.set("n", '<leader>gw', ":Glow<CR>")
+
 return {}
