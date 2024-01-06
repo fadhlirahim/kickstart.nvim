@@ -19,6 +19,9 @@ vim.keymap.set("n", "<leader>sb", "<C-w>s") -- split window horizontally
 -- ZenMod
 vim.keymap.set("n", "<leader>sn", ":ZenMode<CR>")
 
+-- Explore
+vim.keymap.set("n", "<leader>se", ":Explore<CR>")
+
 -- [[ Highlight  on Cody]]
 vim.api.nvim_set_hl(0, "CmpItemKindCody", { fg = "Red" })
 
@@ -30,6 +33,8 @@ vim.keymap.set('n', '<leader>ch', function()
   require("sg.cody.commands").focus_history()
 end)
 
-vim.keymap.set("n", '<leader>gw', ":Glow<CR>")
+vim.keymap.set("n", '<leader>gl', ":Glow<CR>")
+
+vim.g.copilot_assume_mapped = true
 
 return {}

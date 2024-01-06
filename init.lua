@@ -307,6 +307,9 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+    file_ignore_patterns = {
+      'node_modules',
+    }
   },
 }
 
@@ -631,7 +634,6 @@ require('glow').setup({
   width = 120,
   height = 100,
 })
-
 
 require("toggleterm").setup({
   open_mapping = [[<c-\>]],
