@@ -153,7 +153,11 @@ require('lazy').setup({
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
-    config = function()
+    config = function(_, opts)
+      opts = {
+        style = 'deep'
+      }
+      require("onedark").setup(opts)
       vim.cmd.colorscheme 'onedark'
     end,
   },
@@ -636,11 +640,10 @@ require('glow').setup({
   height = 100,
 })
 
-require("toggleterm").setup({
+require('toggleterm').setup({
   open_mapping = [[<c-\>]],
   direction = 'float'
 })
-
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
