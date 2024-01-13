@@ -22,6 +22,9 @@ vim.keymap.set("n", "<leader>sn", ":ZenMode<CR>")
 -- Explore
 vim.keymap.set("n", "<leader>se", ":Explore<CR>")
 
+-- keymap :%!jq '.'
+vim.keymap.set("n", "<leader>jq", ":%!jq '.'<CR>")
+
 -- [[ Highlight  on Cody]]
 vim.api.nvim_set_hl(0, "CmpItemKindCody", { fg = "Red" })
 
