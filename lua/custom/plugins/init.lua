@@ -25,6 +25,9 @@ vim.keymap.set("n", "<leader>se", ":Explore<CR>")
 -- keymap :%!jq '.'
 vim.keymap.set("n", "<leader>jq", ":%!jq '.'<CR>")
 
+-- save file
+vim.keymap.set("n", "<leader>w", ":w<CR>")
+
 -- [[ Highlight  on Cody]]
 vim.api.nvim_set_hl(0, "CmpItemKindCody", { fg = "Red" })
 
