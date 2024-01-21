@@ -641,7 +641,8 @@ require('glow').setup({
 
 require('toggleterm').setup({
   open_mapping = [[<c-\>]],
-  direction = 'float'
+  direction = 'float',
+  insert_mappings = true,
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
