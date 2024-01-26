@@ -72,4 +72,10 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     end,
 })
 
+-- set filetype=html for *.gohtml
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = "*.gohtml",
+    command = "set filetype=html",
+})
+
 return {}
