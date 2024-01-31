@@ -28,6 +28,9 @@ vim.keymap.set("n", "<leader>jq", ":%!jq '.'<CR>")
 -- save file
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 
+-- format File
+vim.keymap.set("n", "<leader>ff", ":Format<CR>")
+
 -- [[ Highlight  on Cody]]
 vim.api.nvim_set_hl(0, "CmpItemKindCody", { fg = "Red" })
 
@@ -63,22 +66,6 @@ lspconfig.emmet_ls.setup({
     }
 })
 
--- [[ golangci-lint setup ]]
-if not configs.golangcilsp then
- 	configs.golangcilsp = {
-		default_config = {
-			cmd = {'golangci-lint-langserver'},
-			root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
-			init_options = {
-					command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json", "--issues-exit-code=1" };
-			}
-		};
-	}
-end
-
-lspconfig.golangci_lint_ls.setup {
-	filetypes = {'go','gomod'}
-}
 -- remove trailing whitespace
 vim.api.nvim_create_autocmd('BufWritePre', {
     pattern = {"*"},
@@ -93,6 +80,12 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     pattern = "*.gohtml",
     command = "set filetype=html",
+})
+
+-- format file on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    command = "Format"
 })
 
 return {}
