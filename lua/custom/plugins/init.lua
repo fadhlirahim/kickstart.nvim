@@ -35,11 +35,11 @@ vim.keymap.set("n", "<leader>ff", ":Format<CR>")
 vim.api.nvim_set_hl(0, "CmpItemKindCody", { fg = "Red" })
 
 vim.keymap.set('n', '<leader>cp', function()
-  require("sg.cody.commands").focus_prompt()
+    require("sg.cody.commands").focus_prompt()
 end)
 
 vim.keymap.set('n', '<leader>ch', function()
-  require("sg.cody.commands").focus_history()
+    require("sg.cody.commands").focus_history()
 end)
 
 vim.keymap.set("n", '<leader>gl', ":Glow<CR>")
@@ -57,27 +57,27 @@ lspconfig.emmet_ls.setup({
     capabilities = capabilities,
     filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
     init_options = {
-      html = {
-        options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          ["bem.enabled"] = true,
+        html = {
+            options = {
+                -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+                ["bem.enabled"] = true,
+            },
         },
-      },
     }
 })
 
 -- remove trailing whitespace
 vim.api.nvim_create_autocmd('BufWritePre', {
-    pattern = {"*"},
+    pattern = { "*" },
     callback = function()
-      local save_cursor = vim.fn.getpos(".")
-      pcall(function() vim.cmd [[%s/\s\+$//e]] end)
-      vim.fn.setpos(".", save_cursor)
+        local save_cursor = vim.fn.getpos(".")
+        pcall(function() vim.cmd [[%s/\s\+$//e]] end)
+        vim.fn.setpos(".", save_cursor)
     end,
 })
 
 -- set filetype=html for *.gohtml
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.gohtml",
     command = "set filetype=html",
 })
@@ -86,6 +86,26 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     command = "Format"
+})
+
+-- noice setup
+require("noice").setup({
+    lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        },
+    },
+    -- you can enable a preset for easier configuration
+    presets = {
+        bottom_search = true,         -- use a classic bottom cmdline for search
+        command_palette = true,       -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false,       -- add a border to hover docs and signature help
+    },
 })
 
 return {}

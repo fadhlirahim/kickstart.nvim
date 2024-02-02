@@ -48,7 +48,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -73,7 +73,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -312,9 +312,9 @@ require('telescope').setup {
       },
     },
 
-   file_ignore_patterns = {
-     '^node_modules/',
-   }
+    file_ignore_patterns = {
+      '^node_modules/',
+    }
   },
 }
 
@@ -643,6 +643,26 @@ require('toggleterm').setup({
   open_mapping = [[<c-\>]],
   direction = 'float',
   insert_mappings = true,
+})
+
+-- noice setup
+require("noice").setup({
+  lsp = {
+    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+    override = {
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      ["vim.lsp.util.stylize_markdown"] = true,
+      ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+    },
+  },
+  -- you can enable a preset for easier configuration
+  presets = {
+    bottom_search = true,         -- use a classic bottom cmdline for search
+    command_palette = true,       -- position the cmdline and popupmenu together
+    long_message_to_split = true, -- long messages will be sent to a split
+    inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+    lsp_doc_border = false,       -- add a border to hover docs and signature help
+  },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
