@@ -18,12 +18,4 @@ return {
     -- or
     { 'akinsho/toggleterm.nvim', version = "*", opts = { --[[ things you want to change go here]] } },
 
-    -- setup
-    config = function()
-        require('toggleterm').setup({
-            open_mapping = [[<c-\>]],
-            direction = 'float',
-            insert_mappings = true,
-        })
-    end
 }
