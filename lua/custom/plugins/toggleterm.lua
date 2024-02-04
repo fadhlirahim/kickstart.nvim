@@ -1,5 +1,5 @@
 function _G.set_terminal_keymaps()
-    local opts = {buffer = 0}
+    local opts = { buffer = 0 }
     vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
     vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
     vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
@@ -13,8 +13,17 @@ end
 vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
 return {
-  -- amongst your other plugins
-  {'akinsho/toggleterm.nvim', version = "*", config = true},
-  -- or
-  {'akinsho/toggleterm.nvim', version = "*", opts = {--[[ things you want to change go here]]}}
+    -- amongst your other plugins
+    { 'akinsho/toggleterm.nvim', version = "*", config = true },
+    -- or
+    { 'akinsho/toggleterm.nvim', version = "*", opts = { --[[ things you want to change go here]] } },
+
+    -- setup
+    config = function()
+        require('toggleterm').setup({
+            open_mapping = [[<c-\>]],
+            direction = 'float',
+            insert_mappings = true,
+        })
+    end
 }

@@ -633,18 +633,6 @@ cmp.setup {
   },
 }
 
-require('glow').setup({
-  style = "dark",
-  width = 120,
-  height = 100,
-})
-
-require('toggleterm').setup({
-  open_mapping = [[<c-\>]],
-  direction = 'float',
-  insert_mappings = true,
-})
-
 -- noice setup
 require("noice").setup({
   lsp = {
@@ -657,6 +645,7 @@ require("noice").setup({
   },
   -- you can enable a preset for easier configuration
   presets = {
+
     bottom_search = true,         -- use a classic bottom cmdline for search
     command_palette = true,       -- position the cmdline and popupmenu together
     long_message_to_split = true, -- long messages will be sent to a split
@@ -664,6 +653,5 @@ require("noice").setup({
     lsp_doc_border = false,       -- add a border to hover docs and signature help
   },
 })
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
