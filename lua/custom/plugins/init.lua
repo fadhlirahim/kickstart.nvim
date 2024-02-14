@@ -55,7 +55,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.emmet_ls.setup({
     -- on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+    filetypes = { "css", "eruby", "html", "html.tmpl", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
     init_options = {
         html = {
             options = {
@@ -78,13 +78,13 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 
 -- set filetype=html for *.gohtml
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = "*.gohtml",
+    pattern = { "*.gohtml, *.html, *.html.tmpl" },
     command = "set filetype=html",
 })
 
 -- format file on save
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
+    pattern = { "*.go" },
     command = "Format"
 })
 
