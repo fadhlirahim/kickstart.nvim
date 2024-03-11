@@ -84,9 +84,9 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 })
 
 -- format file on save
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = { '*.go' },
-  command = 'Format',
-})
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   pattern = { '*.go' },
+--   command = 'Format',
+-- })
 
 return {}
