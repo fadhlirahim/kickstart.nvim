@@ -33,6 +33,8 @@ vim.keymap.set('n', '<leader>ff', ':Format<CR>')
 -- [[ Highlight  on Cody]]
 vim.api.nvim_set_hl(0, 'CmpItemKindCody', { fg = 'Red' })
 
+-- [[ Cody ]]
+vim.keymap.set('n', '<leader>cn', ':CodyChat<CR>')
 vim.keymap.set('n', '<leader>cp', function()
   require('sg.cody.commands').focus_prompt()
 end)
@@ -43,12 +45,13 @@ end)
 
 vim.keymap.set('n', '<leader>gl', ':Glow<CR>')
 
--- [[ Copilot ]]
-vim.g.copilot_assume_mapped = true
 local lspconfig = require 'lspconfig'
-local configs = require 'lspconfig/configs'
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+-- [[ Copilot ]]
+-- vim.g.copilot_assume_mapped = true
+-- local configs = require 'lspconfig/configs'
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- [[ Emmet setup ]]
 lspconfig.emmet_ls.setup {
@@ -82,11 +85,5 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { '*.html.tmpl' },
   command = 'set filetype=html',
 })
-
--- format file on save
--- vim.api.nvim_create_autocmd('BufWritePre', {
---   pattern = { '*.go' },
---   command = 'Format',
--- })
 
 return {}
