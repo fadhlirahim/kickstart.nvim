@@ -634,9 +634,18 @@ require('lazy').setup({
               luasnip.jump(-1)
             end
           end, { 'i', 's' }),
+
+          -- Manually trigger cody completions
+          ['<c-a>'] = cmp.mapping.complete {
+            config = {
+              sources = {
+                { name = 'cody' },
+              },
+            },
+          },
         },
         sources = {
-          { name = 'cody' },
+          -- { name = 'cody' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
@@ -795,7 +804,7 @@ end)
 vim.keymap.set('n', '<C-n>', function()
   harpoon:list():select(3)
 end)
-vim.keymap.set('n', '<C-s>', function()
+vim.keymap.set('n', '<C-v>', function()
   harpoon:list():select(4)
 end)
 

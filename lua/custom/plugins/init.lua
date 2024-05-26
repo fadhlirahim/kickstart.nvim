@@ -48,10 +48,11 @@ vim.keymap.set('n', '<leader>gl', ':Glow<CR>')
 local lspconfig = require 'lspconfig'
 
 -- [[ Copilot ]]
--- vim.g.copilot_assume_mapped = true
--- local configs = require 'lspconfig/configs'
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
+vim.g.copilot_assume_mapped = true
+local configs = require 'lspconfig/configs'
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+vim.keymap.set('n', '<leader>cc', ':CopilotChat<CR>')
 
 -- [[ Emmet setup ]]
 lspconfig.emmet_ls.setup {
