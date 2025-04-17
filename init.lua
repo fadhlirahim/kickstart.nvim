@@ -196,6 +196,17 @@ require('lazy').setup({
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+
+        { '', group = '[S]earch' },
+        { '', desc = '<leader>c_', hidden = true },
+        { '', group = '[D]ocument' },
+        { '', desc = '<leader>d_', hidden = true },
+        { '', group = '[R]ename' },
+        { '', group = '[C]ode' },
+        { '', group = '[W]orkspace' },
+        { '', desc = '<leader>w_', hidden = true },
+        { '', desc = '<leader>s_', hidden = true },
+        { '', desc = '<leader>r_', hidden = true },
       }
     end,
   },
@@ -636,13 +647,13 @@ require('lazy').setup({
           end, { 'i', 's' }),
 
           -- Manually trigger cody completions
-          ['<c-a>'] = cmp.mapping.complete {
-            config = {
-              sources = {
-                { name = 'cody' },
-              },
-            },
-          },
+          -- ['<c-a>'] = cmp.mapping.complete {
+          --   config = {
+          --     sources = {
+          --       { name = 'cody' },
+          --     },
+          --   },
+          -- },
         },
         sources = {
           -- { name = 'cody' },
@@ -690,7 +701,14 @@ require('lazy').setup({
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
+      require('mini.surround').setup {
+        mappings = {
+          add = '<leader>sa',
+          delete = '<leader>sd',
+          find = '<leader>sf',
+          replace = '<leader>sr',
+        },
+      }
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -776,7 +794,7 @@ require('lazy').setup({
 })
 
 -- setup cody
-require('sg').setup {}
+-- require('sg').setup {}
 
 -- setup toggleterm
 require('toggleterm').setup {

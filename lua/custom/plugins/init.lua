@@ -31,17 +31,17 @@ vim.keymap.set('n', '<leader>w', ':w<CR>')
 vim.keymap.set('n', '<leader>ff', ':Format<CR>')
 
 -- [[ Highlight  on Cody]]
-vim.api.nvim_set_hl(0, 'CmpItemKindCody', { fg = 'Red' })
+-- vim.api.nvim_set_hl(0, 'CmpItemKindCody', { fg = 'Red' })
 
 -- [[ Cody ]]
-vim.keymap.set('n', '<leader>cn', ':CodyChat<CR>')
-vim.keymap.set('n', '<leader>cp', function()
-  require('sg.cody.commands').focus_prompt()
-end)
 
-vim.keymap.set('n', '<leader>ch', function()
-  require('sg.cody.commands').focus_history()
-end)
+-- vim.keymap.set('n', '<leader>cp', function()
+--   require('sg.cody.commands').focus_prompt()
+-- end)
+--
+-- vim.keymap.set('n', '<leader>ch', function()
+--   require('sg.cody.commands').focus_history()
+-- end)
 
 vim.keymap.set('n', '<leader>gl', ':Glow<CR>')
 
@@ -82,9 +82,9 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 })
 
 -- set filetype=html for *.gohtml
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  pattern = { '*.html.tmpl' },
-  command = 'set filetype=html',
-})
+-- vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+--   pattern = { '*.html.tmpl' },
+--   command = 'set filetype=html',
+-- })
 
 return {}
